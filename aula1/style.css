@@ -1,0 +1,59 @@
+.container{
+	font-family: Arial,Helvetia;
+	letter-spacing: 0.02em;
+	font-weight: 400;
+
+}
+.caixaForm{
+	max-width: 35%;
+	background-color: lightgrey;
+	margin: 0 auto;
+	margin-top: 150px;
+	border-radius: 35px;
+	opacity: 0.8;
+	padding: 5%;
+	text-align: right;
+
+}
+
+.form{
+	width: 70%;
+	height: auto;
+	margin:0 auto;
+	background-color: lightgrey;	
+}
+
+.formGroup{
+	text-align: left;
+	width: 100%;
+	padding: 5px;
+}
+
+.formGroup input{
+	width: 100%;
+	padding-top: 5px;
+}
+
+.buttonForm{
+	background-color: red;
+	border-radius: 10px;
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;	
+	border: 0;
+	color: #fff;
+}
+
+.buttonForm:hover{
+	background-color: #FF7100;
+}
+
+#linkCadastro{
+	text-align: right;
+	padding-top: 10px;	
+}
+#linkCadastro a{
+	text-decoration: none;
+	color: #FF7100;
+}
+

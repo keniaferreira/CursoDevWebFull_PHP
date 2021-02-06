@@ -1,0 +1,16 @@
+{
+    "name": "dell/aula2",
+    "authors": [
+        {
+            "name": "Kênia Ferreira",
+            "email": "keniaferreira@live.com"
+        }
+    ],
+    "require": {},
+    "autoload" : {
+    	"psr-4": {
+    		"App\\" : "app/",
+    		"Src\\" : "src/"
+    	}
+    }
+}

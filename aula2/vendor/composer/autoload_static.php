@@ -6,10 +6,18 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit40bd665e2b67f2095ceed586fd3fc862
 {
+    public static $files = array (
+        '9a0bf70b60cc56d2957bb46ef4eedf7f' => __DIR__ . '/../..' . '/src/helpers/helper_routes.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
             'Src\\' => 4,
+        ),
+        'D' => 
+        array (
+            'Database\\' => 9,
         ),
         'A' => 
         array (
@@ -21,6 +29,10 @@ class ComposerStaticInit40bd665e2b67f2095ceed586fd3fc862
         'Src\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'Database\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/database',
         ),
         'App\\' => 
         array (

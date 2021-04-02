@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/contatos', [\App\Http\Controllers\ContatoController::class, 'showAll']);
+Route::get('/contatos/{id}', [\App\Http\Controllers\ContatoController::class, 'show']);
+Route::post('/contatos/cadastrar', [\App\Http\Controllers\ContatoController::class, 'store']);
+Route::put('/contatos/editar/{id}', [\App\Http\Controllers\ContatoController::class, 'update']);
+Route::delete('/contatos/deletar/{id}', [\App\Http\Controllers\ContatoController::class, 'destroy']);

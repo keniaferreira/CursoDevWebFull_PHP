@@ -7,6 +7,7 @@ use App\Models\Contato;
 
 class ContatoController extends Controller
 {
+    //INÍCIO - FUNÇÕES WEB
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +15,70 @@ class ContatoController extends Controller
      */
     public function index()
     {
-        //
+        $contatos = Contato::all();
+        return view('contato.listar',compact('contatos'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $id = '';
+        $verb = 'POST';
+        $action = '/cadastrar';
+        return view('contato.cadastrarEditar',compact('id','verb','action'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $verb = 'PUT';
+        $action = '/editar/';
+        $contato = Contato::find($id);
+        return view('contato.cadastrarEditar',compact('id','verb','action','contato'));
+    }
+
+    /**
+     * Show the form for delete the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        $verb = 'DELETE';
+        $action = '/deletar/';
+        $contato = Contato::find($id);
+        return view('contato.cadastrarEditar',compact('id','verb','action','contato'));
+    }
+    //FIM - FUNÇÕES WEB
+
+    //INÍCIO - FUNÇÕES API
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $contato = Contato::find($id);
+        if(empty($contato)) {
+            return response()->json([
+                'message' => 'Registro não encontrado.'
+            ],404);
+        }
+        else {
+            return response()->json($contato);
+        }
     }
 
     public function showAll()
@@ -30,17 +94,7 @@ class ContatoController extends Controller
         }
 
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -64,36 +118,6 @@ class ContatoController extends Controller
         ],400);
 
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $contato = Contato::find($id);
-        if(empty($contato)) {
-            return response()->json([
-                'message' => 'Registro não encontrado.'
-            ],404);
-        }
-        else {
-            return response()->json($contato);
-        }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -141,7 +165,7 @@ class ContatoController extends Controller
     { 
         $contato = Contato::find($id);
         if(empty($contato)) {
-            return response()->([
+            return response()->json([
                 'message'=> 'Registro não encontrado.',
             ], 404);
         }
@@ -165,4 +189,5 @@ class ContatoController extends Controller
             }
         }
     }
+    //FIM - FUNÇÕES API
 }
